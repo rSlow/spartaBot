@@ -25,13 +25,13 @@ sys.path.append(BASE_DIR)
 # for 'autogenerate' support
 try:
     from orm.base import Engine, Base
+    from orm.models.competition import Competition
+    from orm.models.groups import Group
+    from orm.models.persons import Person
+    from orm.models.results import CompetitionPersonalResult, CompetitionGroupResult
+    from orm.models.timetable import Timetable
 
     target_metadata = Base.metadata
-except ImportError as ex:
-    raise ex
-
-try:
-    ...
 except ImportError:
     raise
 

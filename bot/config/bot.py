@@ -7,7 +7,7 @@ from config import settings
 from config.shutdown import on_shutdown
 from config.startup import on_startup
 from config.storage import redis_storage
-from dialogs.main import main_dialog
+from dialogs import dialogs_router
 from handlers.commands import commands_router
 
 dispatcher = Dispatcher(
@@ -28,5 +28,5 @@ def init_dispatcher(dp: Dispatcher):
 
     dp.include_routers(
         commands_router,
-        main_dialog,
+        dialogs_router,
     )
