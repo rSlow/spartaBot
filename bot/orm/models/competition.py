@@ -6,19 +6,18 @@ from sqlalchemy import Enum as SQLEnum
 from ..base import Base
 
 
-class CompetitionType(int, Enum):
-    TEAM = 1
-    TEAM_AGAINST = 2
-    PERSONAL = 3
-    PERSON_AGAINST = 4
+class CompetitionType(str, Enum):
+    TEAM = "TEAM"
+    TEAM_AGAINST = "TEAM_AGAINST"
+    PERSONAL = "PERSONAL"
+    PERSON_AGAINST = "PERSON_AGAINST"
 
 
 class Competition(Base):
     __tablename__ = "competitions"
 
     name: Mapped[str]
-    type = mapped_column(
-        SQLEnum(CompetitionType),
+    type: Mapped[CompetitionType] = mapped_column(
         nullable=False,
-        default=CompetitionType.TEAM.value
+        default=CompetitionType.TEAM.name,
     )

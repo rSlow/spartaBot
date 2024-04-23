@@ -1,0 +1,2 @@
+class UpdateGoogleError(ConnectionError):
+    pass

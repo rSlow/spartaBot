@@ -16,10 +16,7 @@ class CompetitionResult:
     def competition(self) -> Mapped[Competition]:
         return relationship()
 
-    result: Mapped[float] = mapped_column(
-        nullable=False,
-        default=0
-    )
+    result: Mapped[float] = mapped_column(default=0)
 
 
 class CompetitionGroupResult(CompetitionResult, Base):

@@ -2,7 +2,7 @@ from aiogram_dialog import Window, Dialog
 from aiogram_dialog.widgets.kbd import Start
 from aiogram_dialog.widgets.text import Const
 
-from states import StartFSM, CompetitionFSM
+from states import StartFSM, CompetitionFSM, AdminFSM
 
 main_dialog = Dialog(
     Window(
@@ -16,6 +16,11 @@ main_dialog = Dialog(
             text=Const("Места по видам"),
             id="places_by_type",
             state=CompetitionFSM.state
+        ),
+        Start(
+            text=Const("Админка"),
+            id="admin",
+            state=AdminFSM.state
         ),
         state=StartFSM.state
     )

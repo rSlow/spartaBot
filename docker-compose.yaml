@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   aiogram:
@@ -39,7 +39,7 @@ services:
       - "--save 60 10000"
       - "--maxmemory ${REDIS_MAXMEM:-50mb}"
       - "--maxmemory-policy ${REDIS_POLICY:-noeviction}"
-      - "--requirepass ${REDIS_PASS}"
+      - "--requirepass ${REDIS_PASSWORD}"
     volumes:
       - redis_sparta:/data
     env_file:
